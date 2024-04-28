@@ -4,8 +4,77 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <title>Committee Interface</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .text-box {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            position:fixed;
+            width:100%;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 24px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .sidebar {
+            background-color: #f4f4f4;
+            width: 200px;
+            top: 50px; /*fixed accorind to the header height*/
+            bottom: 20px; /*fixed accorind to the footer height*/
+            height: 100%;
+            position: fixed;
+            overflow: auto;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+        .sidebar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }    
+    </style>
+    <asp:ContentPlaceHolder ID="addStyleHere" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>

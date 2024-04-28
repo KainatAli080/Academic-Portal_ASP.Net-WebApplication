@@ -43,31 +43,33 @@
 
     <br />
     <p><strong>Project Details</strong></p>
-    <label for="projectTitle">Project ID: </label><br />
-    <asp:Label ID="projectID" runat="server" CssClass="text-box"/>
-    <br />
-    <label for="projectTitle">Project Title:</label><br />
-    <asp:Label ID="projectTitle" runat="server" CssClass="text-box"/>
+    <p>
+        <label for="projectTitle">Project ID: </label>
+        <asp:Label ID="projectID" runat="server"/>
+
+        <label for="projectTitle">Project Title:</label>
+        <asp:Label ID="projectTitle" runat="server"/>
+    </p>
     <br /><br />
 
     <p><strong>Group Members Details</strong></p>
-    <label for="groupMember1">ID Group Member 1</label><br />
-    <asp:Label ID="groupMember1" runat="server" CssClass="text-box"/>
+    <label for="groupMember1">ID Group Member 1: </label>
+    <asp:Label ID="groupMember1" runat="server"/>
     <br />
-    <label for="groupMember2">ID Group Member 2</label><br />
-    <asp:Label ID="groupMember2" runat="server" CssClass="text-box"/>
+    <label for="groupMember2">ID Group Member 2: </label>
+    <asp:Label ID="groupMember2" runat="server"/>
     <br/>
-    <label for="groupMember3">ID Group Member 3</label><br />
-    <asp:Label ID="groupMember3" runat="server" CssClass="text-box"/>
+    <label for="groupMember3">ID Group Member 3: </label>
+    <asp:Label ID="groupMember3" runat="server"/>
     <br /><br />
 
     <p><strong>FYP Supervisor Description</strong></p>
-    <label for="supervisor">Supervisor:</label><br />
-    <asp:Label ID="supervisor" runat="server" CssClass="text-box"/>
-    <br /><br />
+    <label for="supervisor">Supervisor:</label>
+    <asp:Label ID="supervisor" runat="server" />
+    <br />
 
-    <label for="coSupervisor">Co-Supervisor (optional):</label><br />
-    <asp:Label ID="coSupervisor" runat="server" CssClass="text-box"/>
+    <label for="coSupervisor">Co-Supervisor (optional):</label>
+    <asp:Label ID="coSupervisor" runat="server" />
     <br /><br />
 
     <br />
