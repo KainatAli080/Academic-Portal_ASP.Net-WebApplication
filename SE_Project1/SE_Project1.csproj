@@ -78,6 +78,8 @@
     <Content Include="Pages\CommitteePanelAssignment.aspx" />
     <Content Include="Pages\CommitteeViewRegisteredStudents.aspx" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\PanelViewMyFYP.aspx" />
+    <Content Include="Pages\Test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +162,13 @@
     <Compile Include="Pages\PanelLayout.Master.designer.cs">
       <DependentUpon>PanelLayout.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PanelViewMyFYP.aspx.cs">
+      <DependentUpon>PanelViewMyFYP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PanelViewMyFYP.aspx.designer.cs">
+      <DependentUpon>PanelViewMyFYP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StudentLayout.Master.cs">
       <DependentUpon>StudentLayout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,6 +182,13 @@
     </Compile>
     <Compile Include="Pages\SupervisorLayout.Master.designer.cs">
       <DependentUpon>SupervisorLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DatabaseConnection.cs" />
