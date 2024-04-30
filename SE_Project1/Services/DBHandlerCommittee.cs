@@ -430,5 +430,26 @@ namespace SE_Project1.Services
             }      
         }
 
+        public bool assignGroupToPanel(string gID, string pID)
+        {
+            connection.Open();
+            string query = "Insert into FYPGroupAssignedToPanel Values (@groupID, @panelID)";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@groupID", gID);
+            cmd.Parameters.AddWithValue("@panelID", pID);
+            int found = cmd.ExecuteNonQuery();
+
+            if(found > 0)
+            {
+                connection.Close();
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
     }
 }

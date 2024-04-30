@@ -81,6 +81,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\FYPGroupAssignedToPanel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Pages\CommitteeCreateUser.aspx.cs">
       <DependentUpon>CommitteeCreateUser.aspx</DependentUpon>

@@ -89,7 +89,7 @@
                 <a href="CommitteeCreateUser.aspx">Create User</a>
                 <a href="CommitteeViewRegisteredStudents.aspx">View Registered Students</a>
                 <a href="CommitteeManageSupervisorWorkload.aspx">Manage Supervisor Workload</a>
-                <a href="PanelAssignment.aspx">Panel Assignment</a>
+                <a href="CommitteePanelAssignment.aspx">Panel Assignment</a>
                 <a href="AssignDeadlines.aspx">Assign Deadlines</a>
                 <a href="ViewFYPEvaluations.aspx">View FYP Evaluations</a>
                 <a href="ReportGeneration.aspx">Report Generation</a>

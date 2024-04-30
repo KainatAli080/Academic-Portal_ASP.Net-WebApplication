@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using SE_Project1.Models;
 using SE_Project1.Pages;
 using System.Security.Cryptography;
+using System.Data;
 
 namespace SE_Project1.Services
 {
@@ -52,7 +53,22 @@ namespace SE_Project1.Services
             }
             connection.Close();
             return false;
-        }// end of StudentLogin Function     
+        }// end of StudentLogin Function 
+
+        public void getFypGroupData(GridView gridID)
+        {
+            connection.Open();
+            string query = "SELECT * FROM FYPGroup WHERE IsAssignedToPanel = 0";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable studentTable = new DataTable();
+            adapter.Fill(studentTable);
+
+            gridID.DataSource = studentTable;
+            gridID.DataBind();
+            connection.Close();
+        }
 
     }
 }

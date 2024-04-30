@@ -47,7 +47,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <h2><strong><u>Create New FYP Project</u></strong></h2>
+    <h2><strong>Create New FYP Project</strong></h2>
     
     <p><strong>FYP Project Description</strong></p>
     <label for="projectTitle">Project ID:</label><br />
