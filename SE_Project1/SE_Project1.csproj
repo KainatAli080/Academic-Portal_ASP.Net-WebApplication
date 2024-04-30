@@ -75,6 +75,7 @@
     <Content Include="Pages\CommitteeCreateUserSupervisor.aspx" />
     <Content Include="Pages\CommitteeHomepage.aspx" />
     <Content Include="Pages\CommitteeManageSupervisorWorkload.aspx" />
+    <Content Include="Pages\CommitteePanelAssignment.aspx" />
     <Content Include="Pages\CommitteeViewRegisteredStudents.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Web.config" />
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="Pages\CommitteeManageSupervisorWorkload.aspx.designer.cs">
       <DependentUpon>CommitteeManageSupervisorWorkload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CommitteePanelAssignment.aspx.cs">
+      <DependentUpon>CommitteePanelAssignment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CommitteePanelAssignment.aspx.designer.cs">
+      <DependentUpon>CommitteePanelAssignment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CommitteeViewRegisteredStudents.aspx.cs">
       <DependentUpon>CommitteeViewRegisteredStudents.aspx</DependentUpon>

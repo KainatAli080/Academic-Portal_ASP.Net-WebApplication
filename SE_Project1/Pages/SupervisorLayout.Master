@@ -4,16 +4,103 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title>Supervisor Interface</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .text-box {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            position:fixed;
+            width:100%;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 24px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .sidebar {
+            background-color: #f4f4f4;
+            width: 200px;
+            top: 50px; /*fixed accorind to the header height*/
+            bottom: 20px; /*fixed accorind to the footer height*/
+            height: 100%;
+            position: fixed;
+            overflow: auto;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+        .sidebar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+    </style>
+    <div class="styleToAdd">
+        <asp:ContentPlaceHolder ID="AddCSSStyle" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
+    <div class="body">
+        <form class="body" runat="server">
+            <div class="header">
+                Supervisor Interface
+            </div>
+            <div class="sidebar">
+                <a href="CommitteeHomepage.aspx">Homepage</a>
+                <a href="CommitteeCreateUser.aspx">View FYP Groups</a>
+                <a href="CommitteeViewRegisteredStudents.aspx">Mark Attendance</a>
+                <a href="CommitteeManageSupervisorWorkload.aspx">Evaluation Form</a>
+            </div>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="footer">
+                Created By Kainat Ali, Rabail Nasir, Areeb Hayat.
+            </div>
+        </form>
+    </div>
 </body>
 </html>
+
+

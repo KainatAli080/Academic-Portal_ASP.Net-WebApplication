@@ -113,6 +113,9 @@ CREATE TABLE FYPGroup (
 	FOREIGN KEY (Group_Member3) REFERENCES Student (Roll_No)
 );
 
+--ALTER TABLE users
+--ADD email VARCHAR(100);
+
 CREATE TABLE GroupHasProject
 (
 	grp_id VARCHAR(40),	-- Group ID would be member1ID+member2ID+member3ID
