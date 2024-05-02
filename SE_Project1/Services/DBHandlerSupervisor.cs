@@ -37,17 +37,20 @@ namespace SE_Project1.Services
 
                 if (p == pass)
                 {
+                    check.Close ();
                     connection.Close();
                     return true;
                 }
 
                 else
                 {
+                    check.Close();
                     connection.Close();
                     return false;
                 }
 
             }
+            check.Close();
             connection.Close();
             return false;
         }// end of supervisorLogin Function

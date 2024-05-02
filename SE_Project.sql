@@ -14,6 +14,14 @@ select * from FYPGroup;
 select * from CoSupervisor;
 select * from FYPGroupAssignedToPanel;
 
+
+--SELECT * FROM Student
+--WHERE fname LIKE '%J%n%';
+
+-- select * from FYPGroup where Group_Member1='S002' or Group_Member2='S002' or Group_Member3='S002'
+
+--Update FYPGroup set IsAssignedToPanel=1 where Group_ID='G_S025_S026_S026'
+
 --TRUNCATE Table Panel
 --delete from Panel where Panel.Panel_ID='PA001'
 
@@ -59,6 +67,9 @@ Student_Password VARCHAR(8),
 
 PRIMARY KEY (Roll_No)
 );
+--ALTER TABLE Student
+--ALTER COLUMN Grade CHAR(2) NULL;
+
 
 ---- Queries to test Student
 --select Student_Password FROM Student WHERE Roll_No='21i-2470';
@@ -217,6 +228,15 @@ LeftBy VARCHAR(8),
 PRIMARY KEY (Review_ID),
 FOREIGN KEY (LeftBY) REFERENCES Faculty (Faculty_ID)
 );
+
+--  the table to store the grade for each separate evaluation submission of group. 
+--CREATE TABLE presentationGrade (
+--	EvaluationID Varchar(8),	-- this is the ID of the assessment the FYP group submits
+--    Group_ID VARCHAR(40),
+--    marks VARCHAR(3),
+--    PRIMARY KEY (Roll_No),
+--    FOREIGN KEY (Roll_No) REFERENCES Student(Roll_No)
+--);
 
 -----------------------------------------------------------
 ------------------   Data Insertion  ----------------------

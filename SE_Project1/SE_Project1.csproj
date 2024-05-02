@@ -82,6 +82,7 @@
     <Content Include="Pages\PanelSelectStudentToEvaluate.aspx" />
     <Content Include="Pages\PanelViewMyFYP.aspx" />
     <Content Include="Pages\StudentHomePage.aspx" />
+    <Content Include="Pages\StudentViewFYPGroupDetails.aspx" />
     <Content Include="Pages\SupervisorHomePage.aspx" />
     <Content Include="Pages\Test.aspx" />
     <Content Include="Web.config" />
@@ -200,6 +201,13 @@
     </Compile>
     <Compile Include="Pages\StudentLayout.Master.designer.cs">
       <DependentUpon>StudentLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentViewFYPGroupDetails.aspx.cs">
+      <DependentUpon>StudentViewFYPGroupDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\StudentViewFYPGroupDetails.aspx.designer.cs">
+      <DependentUpon>StudentViewFYPGroupDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SupervisorHomePage.aspx.cs">
       <DependentUpon>SupervisorHomePage.aspx</DependentUpon>

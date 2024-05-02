@@ -46,7 +46,7 @@
     <p>
         <label for="projectTitle">Project ID: </label>
         <asp:Label ID="projectID" runat="server"/>
-
+        <br />
         <label for="projectTitle">Project Title:</label>
         <asp:Label ID="projectTitle" runat="server"/>
     </p>
@@ -68,7 +68,7 @@
     <asp:Label ID="supervisor" runat="server" />
     <br />
 
-    <label for="coSupervisor">Co-Supervisor (optional):</label>
+    <label for="coSupervisor">Co-Supervisor:</label>
     <asp:Label ID="coSupervisor" runat="server" />
     <br /><br />
 

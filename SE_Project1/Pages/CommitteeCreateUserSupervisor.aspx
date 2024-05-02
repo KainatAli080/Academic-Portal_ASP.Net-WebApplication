@@ -36,6 +36,7 @@
             <asp:BoundField DataField="department" HeaderText="Department" SortExpression="Department" />         
         </Columns>
     </asp:GridView>
+    <asp:Label ID="emptyTableWarning" runat="server" ForeColor="Red" Visible="False"></asp:Label>
     <br />
     <asp:Button ID="btnCreateSupervisor" runat="server" Text="Create Supervisor" OnClick="btnCreateSupervisor_Click" CssClass="createPanel-btn"/>
     <asp:Label ID="warningMessage" runat="server" ForeColor="Red" Visible="False"></asp:Label>

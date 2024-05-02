@@ -19,6 +19,14 @@ namespace SE_Project1.Pages
             {
                 DBHandlerCommittee dBHandlerCommittee = new DBHandlerCommittee();
                 dBHandlerCommittee.getSupervisorWithMoreThan6Projects(GridViewSupervisor);
+
+                if(GridViewSupervisor.Rows.Count > 0)
+                {
+                    // meaning no supervisors with more tyan 6 projects
+                    GridViewSupervisor.ShowHeaderWhenEmpty = true;
+                    emptyListWarning.Text = "No Supervisors Available with more than 6 projects.";
+                    emptyListWarning.Visible = true;
+                }
             }
         }
 
@@ -50,6 +58,15 @@ namespace SE_Project1.Pages
 
                 DBHandlerCommittee dBHandlerCommittee = new DBHandlerCommittee();
                 dBHandlerCommittee.getSupervisorWithLessThan6Projects(GridViewSupervisorLessThan6Projects);
+                
+                //checking if No Supervisors with less than 6 projects
+                if(GridViewSupervisorLessThan6Projects.Rows.Count == 0)
+                {
+                    GridViewSupervisorLessThan6Projects.ShowHeaderWhenEmpty = true;
+                    warningMessage.Text = "No Supervisor with less than 6 projects available. Make more Supervisors.";
+                    warningMessage.Visible = true;
+                }
+
                 GridViewSupervisorLessThan6Projects.Visible = true;
             }
         }

@@ -17,6 +17,13 @@ namespace SE_Project1.Pages
                 // binding data to 
                 DBHandlerSupervisor sup = new DBHandlerSupervisor();
                 sup.getFacultyData(GridViewFaculty);
+                // checking if no data was returned
+                if(GridViewFaculty.Rows.Count == 0)
+                {
+                    GridViewFaculty.ShowHeaderWhenEmpty = true;
+                    emptyTableWarning.Text = "No more Faculty Members to create Supervisors.";
+                    emptyTableWarning.Visible = true;
+                }
             }
         }
 

@@ -29,6 +29,7 @@
             <asp:ButtonField ButtonType="Button" CommandName="Select" Text="View Supervisors Projects"/>
         </Columns>
     </asp:GridView>
+    <asp:Label ID="emptyListWarning" runat="server" ForeColor="Red" Visible="False"></asp:Label>
 
     <br />
     <p><strong>Current projects of Supervisor:</strong></p>

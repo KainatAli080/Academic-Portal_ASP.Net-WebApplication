@@ -35,6 +35,7 @@ namespace SE_Project1.Services
                 return true;
 
             }
+            check.Close ();
             connection.Close();
             return false;
         }// end of committeeLogin Function
@@ -51,6 +52,7 @@ namespace SE_Project1.Services
                 name = getData["Member_Name"].ToString();
                 break;
             }
+            getData.Close ();
             connection.Close();
             return name;
         }
@@ -275,6 +277,7 @@ namespace SE_Project1.Services
             // Checking if there are rows and reading the first row
             if (sqlData.Read())
             {
+                sID = sqlData["sup_id"].ToString();
                 // if true? do this : else do this 
                 coSupExists = sqlData["coSup"] != DBNull.Value ? Convert.ToInt32(sqlData["coSup"]) : 0;
             }
@@ -306,7 +309,6 @@ namespace SE_Project1.Services
             }
         }
 
-        
         public void getSupervisorWithMoreThan6Projects(GridView gridID)
         {
             connection.Open();
@@ -441,6 +443,7 @@ namespace SE_Project1.Services
             if(found > 0)
             {
                 connection.Close();
+                updateGroupAvailabilityForPanel(gID);
                 return true;
             }
             else
@@ -448,6 +451,18 @@ namespace SE_Project1.Services
                 connection.Close();
                 return false;
             }
+        }
+
+        public void updateGroupAvailabilityForPanel(string gID)
+        {
+            connection.Open();
+            string query = "Update FYPGroup set IsAssignedToPanel=1 where Group_ID=@gid";
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
+            sqlCommand.Parameters.AddWithValue("@gid", gID);
+            int found2 = sqlCommand.ExecuteNonQuery();
+
+            connection.Close();
+            return;
         }
 
     }
