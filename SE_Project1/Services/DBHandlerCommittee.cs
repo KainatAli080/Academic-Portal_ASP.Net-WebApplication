@@ -275,7 +275,6 @@ namespace SE_Project1.Services
             // Checking if there are rows and reading the first row
             if (sqlData.Read())
             {
-                sID = sqlData["sup_id"].ToString();
                 // if true? do this : else do this 
                 coSupExists = sqlData["coSup"] != DBNull.Value ? Convert.ToInt32(sqlData["coSup"]) : 0;
             }
