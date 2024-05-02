@@ -11,13 +11,11 @@ select * from Supervises;
 select * from GroupHasProject;
 select * from FYP;
 select * from FYPGroup;
-select * from CoSupervisor
+select * from CoSupervisor;
+select * from FYPGroupAssignedToPanel;
 
-
-
-
-
-
+--TRUNCATE Table Panel
+--delete from Panel where Panel.Panel_ID='PA001'
 
 
 --Delete from FYP where FYP.Project_ID = 'PR003'
@@ -32,7 +30,7 @@ select * from CoSupervisor
 --Delete from Supervises
 
 --UPDATE Supervisor SET NumProjects = 2 WHERE Supervisor_ID = 'FA001'
-
+ 
 ---- drop statements
 --Drop Table Supervisor
 --Drop Table coSupervisor
@@ -80,7 +78,7 @@ CREATE TABLE Faculty (
 );
 ---- empty table
 --SELECT Faculty_ID, FName, LName, Department FROM Faculty WHERE commMember=0 and sup=0
---Update Faculty set sup=0 where Faculty.Faculty_ID = 'FA002'
+-- Update Faculty set available=0 where Faculty_ID='FA200'
 
 
 CREATE TABLE Supervisor (
@@ -113,8 +111,10 @@ CREATE TABLE FYPGroup (
 	FOREIGN KEY (Group_Member3) REFERENCES Student (Roll_No)
 );
 
---ALTER TABLE users
---ADD email VARCHAR(100);
+--ALTER TABLE FYPGroup
+--ADD IsAssignedToPanel BIT DEFAULT 0;    --BIT takes 1 bit space, for true/false, 0/1 statements
+--UPDATE FYPGroup set IsAssignedToPanel = 0
+
 
 CREATE TABLE GroupHasProject
 (
@@ -166,6 +166,16 @@ CREATE TABLE PanelMember (
 	FOREIGN KEY (PMember_ID) REFERENCES Faculty (Faculty_ID),
 	FOREIGN KEY (pnl_id) REFERENCES Panel (Panel_ID)
 );
+
+
+CREATE TABLE FYPGroupAssignedToPanel (
+    Group_ID VARCHAR(40),
+    Panel_ID VARCHAR(20),
+    PRIMARY KEY (Group_ID, Panel_ID),
+    FOREIGN KEY (Group_ID) REFERENCES FYPGroup(Group_ID),
+    FOREIGN KEY (Panel_ID) REFERENCES Panel(Panel_ID)
+);
+
 
 
 -- NO MORE CHANGES HERE

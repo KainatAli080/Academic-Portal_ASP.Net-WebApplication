@@ -9,8 +9,8 @@
         /* Center the container and its content */
         .container {
             display: flex;
-            justify-content: center; /* Centers the checkboxes and numbers horizontally */
-            align-items: center; /* Centers the checkboxes and numbers vertically */
+            justify-content: flex-start; /* Centers the checkboxes and numbers horizontally */
+            align-items: flex-start; /* Centers the checkboxes and numbers vertically */
             margin-top: 10px; /* Adjust the top margin as needed to center vertically */
             flex-direction: column; /* Stacks the containers vertically */
         }
@@ -21,12 +21,14 @@
             justify-content: center; /* Centers the items horizontally */
             margin-bottom: 10px; /* Adds space between the number and checkbox rows */
             gap: 12px;
+            margin-left: 100px;
         }
 
         .row2 {
             display: flex;
             justify-content: center; /* Centers the items horizontally */
             margin-bottom: 10px; /* Adds space between the number and checkbox rows */
+            margin-left: 95px;
         }
         
         /* Style each number and checkbox */
@@ -51,6 +53,7 @@
     </script>
 </head>
 <body>
+    <h2>Evaluation Form for FYP</h2>
 
     <p><strong>1. FYP Poster:</strong></p>
     <form class="container evaluation-form">
@@ -72,34 +75,34 @@
         <div class="row2">
         
             <div class="item">
-                <input type="checkbox" id="rating1" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating1" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating2" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating2" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating3" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating3" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating4" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating4" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating5" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating5" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating6" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating6" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating7" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating7" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating8" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating8" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating9" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating9" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
             <div class="item">
-                <input type="checkbox" id="rating10" name="rating" onclick="selectOnlyOne(this)">
+                <input type="checkbox" id="rating10" name="rating" onclick="selectOnlyOne(this.form, this)">
             </div>
         </div>
     </form>

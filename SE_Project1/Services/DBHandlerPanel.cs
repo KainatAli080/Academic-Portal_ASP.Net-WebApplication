@@ -80,7 +80,7 @@ namespace SE_Project1.Services
                 foreach (string facultyid in selectedIds)
                 {
                     // updating availability status of faculty to be made into panel member
-                    string q3 = "Update Faculty set available=" + 0 + " where Faculty_ID='" + facultyid + "'";
+                    string q3 = "Update Faculty set available = 0 where Faculty_ID='" + facultyid + "'";
                     SqlCommand updateAvailability = new SqlCommand(q3, connection);
                     int successChange = updateAvailability.ExecuteNonQuery();
                     

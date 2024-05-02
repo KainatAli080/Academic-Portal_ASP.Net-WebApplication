@@ -7,6 +7,7 @@
 
     <style>
         body, html {
+            background-color:#faf6f6;
             margin: 0;
             padding: 0;
             height: 100%;
@@ -22,6 +23,7 @@
             border-radius: 4px;
             font-family:Georgia, 'Times New Roman', Times, serif;
         }
+
         .header {
             background-color: #333;
             color: #fff;
@@ -32,6 +34,24 @@
             font-size: 24px;
             font-family:Georgia, 'Times New Roman', Times, serif;
         }
+
+        .button-container {
+            position: absolute;
+            top: 8px;
+            right: 50px;
+        }
+
+        /* Define a class for the button in the header */
+        .header-button {
+            background-color: #e2dede; /* Button background color */
+            color: black; /* Button text color */
+            padding: 5px 10px; /* Button padding */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 12px; /* Button font size */
+            font-family: Georgia, 'Times New Roman', Times, serif; /* Button font family */
+        }
+
         .footer {
             background-color: #333;
             color: #fff;
@@ -45,7 +65,7 @@
             width: 100%;
         }
         .sidebar {
-            background-color: #f4f4f4;
+            background-color: #f4f5f4;
             width: 200px;
             top: 50px; /*fixed accorind to the header height*/
             bottom: 20px; /*fixed accorind to the footer height*/
@@ -71,7 +91,10 @@
         .content {
             margin-left: 200px;
             padding: 20px;
-        }
+        }        
+            /*<div class="footer">
+                Created By Kainat Ali, Rabail Nasir, Areeb Hayat.
+            </div>*/
     </style>
     <div class="styleToAdd">
         <asp:ContentPlaceHolder ID="AddCSSStyle" runat="server">
@@ -83,6 +106,9 @@
         <form class="body" runat="server">
             <div class="header">
                 Committee Interface
+                <div class="button-container">
+                    <asp:Button ID="logOutBtn" runat="server" Text="Log Out" OnClick="btnLogOut" CssClass="header-button" />
+                </div>
             </div>
             <div class="sidebar">
                 <a href="CommitteeHomepage.aspx">HomePage</a>
@@ -97,9 +123,6 @@
             <div class="content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
-            </div>
-            <div class="footer">
-                Created By Kainat Ali, Rabail Nasir, Areeb Hayat.
             </div>
         </form>
     </div>

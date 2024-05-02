@@ -30,7 +30,7 @@ namespace SE_Project1.Pages
                 if(success)
                 {
                     Session["studentID"] = ID;
-                    Response.Redirect("CommitteeHomepage.aspx");
+                    Response.Redirect("StudentHomePage.aspx");
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace SE_Project1.Pages
                 if (success)
                 {
                     Session["supervisorID"] = ID;
-                    Response.Redirect("CommitteeHomepage.aspx");
+                    Response.Redirect("SupervisorHomePage.aspx");
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace SE_Project1.Pages
                 if (success)
                 {
                     Session["panelMemberID"] = ID;
-                    Response.Redirect("CommitteeHomepage.aspx");
+                    Response.Redirect("PanelHomePage.aspx");
                 }
                 else
                 {

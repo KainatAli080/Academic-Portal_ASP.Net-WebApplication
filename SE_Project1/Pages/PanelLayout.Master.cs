@@ -13,5 +13,13 @@ namespace SE_Project1.Pages
         {
 
         }
+        protected void btnLogOut(object sender, EventArgs e)
+        {
+            // Clear all session variables
+            Session.Abandon();
+
+            // Redirect user to login page or another desired page
+            Response.Redirect("Login.aspx");
+        }
     }
 }

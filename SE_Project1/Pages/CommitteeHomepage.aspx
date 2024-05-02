@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br/>
-    <h2>Committee Dashboard</h2>
+    <h2>Committee Homepage</h2>
     <p>
         <strong>Name:</strong> <asp:Label ID="CommName" runat="server"></asp:Label>
     </p>

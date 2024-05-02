@@ -54,30 +54,37 @@ namespace SE_Project1.Pages
                 }
             }
 
-            foreach (GridViewRow row in GridViewFaculty.Rows)
-            {
-                CheckBox checkBox = row.FindControl("checkToSelect") as CheckBox;
-                if (checkBox != null)
-                {
-                    if (checkBox.Checked)
-                    {
-                        string facultyId = row.Cells[1].Text;
-                        selectedIds.Add(facultyId);
-                    }
-                }
-                else
-                {
-                    // Debug: Print if CheckBox control is not found
-                    Console.WriteLine($"CheckBox control not found in row {row.RowIndex}");
-                }
-            }
+            //foreach (GridViewRow row in GridViewFaculty.Rows)
+            //{
+            //    CheckBox checkBox = row.FindControl("checkToSelect") as CheckBox;
+            //    if (checkBox != null)
+            //    {
+            //        if (checkBox.Checked)
+            //        {
+            //            string facultyId = row.Cells[1].Text;
+            //            selectedIds.Add(facultyId);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        // Debug: Print if CheckBox control is not found
+            //        Console.WriteLine($"CheckBox control not found in row {row.RowIndex}");
+            //    }
+            //}
 
             bool created = true;
-            if (selectedIds.Count > 1)
+            if (selectedIds.Count > 1 && selectedIds.Count < 7)
             {
                 DBHandlerPanel dBHandlerPanel = new DBHandlerPanel();
                 created = dBHandlerPanel.createPanel(panelID.Text, selectedIds);
             }
+            else
+            {
+                warningMessage.Text = "Panel can only have 6 or less members.";
+                warningMessage.Visible = true;
+                return;
+            }
+
             if (created)
             {
                 warningMessage.Text = "Panel Sucessfully Created.";

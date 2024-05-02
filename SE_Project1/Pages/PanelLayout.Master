@@ -6,74 +6,97 @@
 <head runat="server">
     <title>Panel Member Interface</title>
 
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        .text-box {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            border-radius: 4px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
-        }
-        .header {
-            background-color: #333;
-            color: #fff;
-            position:fixed;
-            width:100%;
-            text-align: center;
-            padding: 10px 20px;
-            font-size: 24px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
-        }
-        .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: right;
-            padding: 10px 20px;
-            font-size: 15px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-        }
-        .sidebar {
-            background-color: #f4f4f4;
-            width: 200px;
-            top: 50px; /*fixed accorind to the header height*/
-            bottom: 20px; /*fixed accorind to the footer height*/
-            height: 100%;
-            position: fixed;
-            overflow: auto;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        .sidebar a {
-            display: block;
-            color: black;
-            padding: 16px;
-            text-decoration: none;
-        }
-        .sidebar a.active {
-            background-color: #04AA6D;
-            color: white;
-        }
-        .sidebar a:hover:not(.active) {
-            background-color: #555;
-            color: white;
-        }
-        .content {
-            margin-left: 200px;
-            padding: 20px;
-        }
-    </style>
+   <style>
+       body, html {
+           background-color:#faf6f6;
+           margin: 0;
+           padding: 0;
+           height: 100%;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+       }
+       .text-box {
+           width: 100%;
+           padding: 10px;
+           margin: 8px 0;
+           display: inline-block;
+           border: 1px solid #ccc;
+           box-sizing: border-box;
+           border-radius: 4px;
+           font-family:Georgia, 'Times New Roman', Times, serif;
+       }
+
+       .header {
+           background-color: #333;
+           color: #fff;
+           position:fixed;
+           width:100%;
+           text-align: center;
+           padding: 10px 20px;
+           font-size: 24px;
+           font-family:Georgia, 'Times New Roman', Times, serif;
+       }
+
+       .button-container {
+           position: absolute;
+           top: 8px;
+           right: 50px;
+       }
+
+       /* Define a class for the button in the header */
+       .header-button {
+           background-color: #e2dede; /* Button background color */
+           color: black; /* Button text color */
+           padding: 5px 10px; /* Button padding */
+           border-radius: 5px; /* Rounded corners */
+           cursor: pointer; /* Pointer cursor on hover */
+           font-size: 12px; /* Button font size */
+           font-family: Georgia, 'Times New Roman', Times, serif; /* Button font family */
+       }
+
+       .footer {
+           background-color: #333;
+           color: #fff;
+           text-align: right;
+           padding: 10px 20px;
+           font-size: 15px;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+           position: fixed;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+       }
+       .sidebar {
+           background-color: #f4f5f4;
+           width: 200px;
+           top: 50px; /*fixed accorind to the header height*/
+           bottom: 20px; /*fixed accorind to the footer height*/
+           height: 100%;
+           position: fixed;
+           overflow: auto;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+       }
+       .sidebar a {
+           display: block;
+           color: black;
+           padding: 16px;
+           text-decoration: none;
+       }
+       .sidebar a.active {
+           background-color: #04AA6D;
+           color: white;
+       }
+       .sidebar a:hover:not(.active) {
+           background-color: #555;
+           color: white;
+       }
+       .content {
+           margin-left: 200px;
+           padding: 20px;
+       }        
+           /*<div class="footer">
+               Created By Kainat Ali, Rabail Nasir, Areeb Hayat.
+           </div>*/
+   </style>
     <div class="styleToAdd">
         <asp:ContentPlaceHolder ID="AddCSSStyle" runat="server">
         </asp:ContentPlaceHolder>
@@ -84,6 +107,9 @@
         <form class="body" runat="server">
             <div class="header">
                 Panel Member Interface
+                <div class="button-container">
+                    <asp:Button ID="logOutBtn" runat="server" Text="Log Out" OnClick="btnLogOut" CssClass="header-button" />
+                </div>
             </div>
             <div class="sidebar">
                 <a href="CommitteeHomepage.aspx">Homepage</a>
@@ -94,9 +120,6 @@
             <div class="content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
-            </div>
-            <div class="footer">
-                Created By Kainat Ali, Rabail Nasir, Areeb Hayat.
             </div>
         </form>
     </div>
