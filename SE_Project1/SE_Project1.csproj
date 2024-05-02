@@ -83,11 +83,13 @@
     <Content Include="Pages\PanelViewMyFYP.aspx" />
     <Content Include="Pages\StudentHomePage.aspx" />
     <Content Include="Pages\StudentViewFYPGroupDetails.aspx" />
+    <Content Include="Pages\StudentViewProjectDetails.aspx" />
     <Content Include="Pages\SupervisorHomePage.aspx" />
     <Content Include="Pages\Test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\FYP.cs" />
     <Compile Include="Models\FYPGroupAssignedToPanel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Pages\CommitteeCreateUser.aspx.cs">
@@ -208,6 +210,13 @@
     </Compile>
     <Compile Include="Pages\StudentViewFYPGroupDetails.aspx.designer.cs">
       <DependentUpon>StudentViewFYPGroupDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentViewProjectDetails.aspx.cs">
+      <DependentUpon>StudentViewProjectDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\StudentViewProjectDetails.aspx.designer.cs">
+      <DependentUpon>StudentViewProjectDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SupervisorHomePage.aspx.cs">
       <DependentUpon>SupervisorHomePage.aspx</DependentUpon>

@@ -151,6 +151,20 @@ namespace SE_Project1.Services
             return pID;
         }
 
+        public string getProjTitle(string pID)
+        {
+            connection.Open();
+            string query = "select Title from FYP where Project_ID=@pid";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@pid", pID);
+
+            object val = cmd.ExecuteScalar();
+            string pTitle = val.ToString();
+
+            connection.Close();
+            return pTitle;
+        }
+
         public List<string> getSupCoSup(string pID)
         {
             connection.Open();

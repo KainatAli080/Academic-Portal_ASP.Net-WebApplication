@@ -113,8 +113,8 @@
             </div>
             <div class="sidebar">
                 <a href="StudentHomePage.aspx">Homepage</a>
-                <a href="StudentViewFYPGroupDetails.aspx">My FYP Group</a>
-                <a href="CommitteeViewRegisteredStudents.aspx">Mark Attendance</a>
+                <a href="StudentViewFYPGroupDetails.aspx">FYP Group Details</a>
+                <a href="StudentViewProjectDetails.aspx">Project Details</a>
                 <a href="CommitteeManageSupervisorWorkload.aspx">Evaluation Form</a>
             </div>
             <div class="content">
