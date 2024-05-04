@@ -79,7 +79,6 @@
     <Content Include="Pages\CommitteeViewRegisteredStudents.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\PanelHomePage.aspx" />
-    <Content Include="Pages\PanelSelectStudentToEvaluate.aspx" />
     <Content Include="Pages\PanelViewMyFYP.aspx" />
     <Content Include="Pages\StudentHomePage.aspx" />
     <Content Include="Pages\StudentViewFYPGroupDetails.aspx" />
@@ -91,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Models\FYP.cs" />
     <Compile Include="Models\FYPGroupAssignedToPanel.cs" />
+    <Compile Include="Models\PanelMember.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Pages\CommitteeCreateUser.aspx.cs">
       <DependentUpon>CommitteeCreateUser.aspx</DependentUpon>
@@ -175,13 +175,6 @@
     </Compile>
     <Compile Include="Pages\PanelLayout.Master.designer.cs">
       <DependentUpon>PanelLayout.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PanelSelectStudentToEvaluate.aspx.cs">
-      <DependentUpon>PanelSelectStudentToEvaluate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\PanelSelectStudentToEvaluate.aspx.designer.cs">
-      <DependentUpon>PanelSelectStudentToEvaluate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PanelViewMyFYP.aspx.cs">
       <DependentUpon>PanelViewMyFYP.aspx</DependentUpon>

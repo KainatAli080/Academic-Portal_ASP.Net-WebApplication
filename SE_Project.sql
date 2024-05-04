@@ -14,6 +14,8 @@ select * from FYPGroup;
 select * from CoSupervisor;
 select * from FYPGroupAssignedToPanel;
 
+--UPDATE student set FName='Test', LName='Test2' where Roll_No='S029'
+
 
 --SELECT * FROM Student
 --WHERE fname LIKE '%J%n%';

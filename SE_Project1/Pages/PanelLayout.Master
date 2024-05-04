@@ -112,8 +112,8 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="CommitteeHomepage.aspx">Homepage</a>
-                <a href="CommitteeCreateUser.aspx">View FYP Groups</a>
+                <a href="PanelHomePage.aspx">Homepage</a>
+                <a href="PanelViewMyFYP.aspx">View FYP Groups</a>
                 <a href="CommitteeViewRegisteredStudents.aspx">Mark Attendance</a>
                 <a href="CommitteeManageSupervisorWorkload.aspx">Evaluation Form</a>
             </div>

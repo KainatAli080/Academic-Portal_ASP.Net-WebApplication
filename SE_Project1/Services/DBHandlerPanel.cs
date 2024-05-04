@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace SE_Project1.Services
 {
@@ -68,6 +69,92 @@ namespace SE_Project1.Services
             gridID.DataSource = facultyTable;
             gridID.DataBind();
             connection.Close() ;
+        }
+
+        public string getMyPanelID(string memID)
+        {
+            connection.Open();
+            string query = "select pnl_id from PanelMember where PMember_ID=@id";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", memID);
+
+            object obj = cmd.ExecuteScalar();
+            string p = obj.ToString();
+
+            connection.Close();
+            return p;   
+        }
+
+        public void getMyPanelsFYPGroupData(GridView gridID, string panelID)
+        {
+            // Open the database connection
+            connection.Open();
+
+            // Define the SQL query
+            string query = @"
+            SELECT fg.Group_ID, fg.Group_Member1, fg.Group_Member2, fg.Group_Member3
+            FROM FYPGroup fg
+            JOIN FYPGroupAssignedToPanel fgap ON fg.Group_ID = fgap.Group_ID
+            WHERE fgap.Panel_ID = @panelId";
+
+            // Create a SqlCommand with the query and connection
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            // Add the parameters
+            cmd.Parameters.AddWithValue("@panelId", panelID);
+
+            // Create a SqlDataAdapter with the command
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            // Create a DataTable to hold the query results
+            DataTable studentTable = new DataTable();
+
+            // Fill the DataTable with the query results
+            adapter.Fill(studentTable);
+
+            // Bind the DataTable to the GridView
+            gridID.DataSource = studentTable;
+            gridID.DataBind();
+
+            // Close the database connection
+            connection.Close();
+        }
+
+        public void getFYPGroupDataAccordingToSearch(GridView gridID, string searchString, string panelID)
+        {
+            // Open the database connection
+            connection.Open();
+
+            // Define the SQL query
+            string query = @"
+            SELECT fg.Group_ID, fg.Group_Member1, fg.Group_Member2, fg.Group_Member3
+            FROM FYPGroup fg
+            JOIN FYPGroupAssignedToPanel fgap ON fg.Group_ID = fgap.Group_ID
+            WHERE fgap.Panel_ID = @panelId
+            AND fg.Group_ID LIKE @search";
+
+            // Create a SqlCommand with the query and connection
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            // Add the parameters
+            cmd.Parameters.AddWithValue("@panelId", panelID);
+            cmd.Parameters.AddWithValue("@search", "%" + searchString + "%");
+
+            // Create a SqlDataAdapter with the command
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            // Create a DataTable to hold the query results
+            DataTable studentTable = new DataTable();
+
+            // Fill the DataTable with the query results
+            adapter.Fill(studentTable);
+
+            // Bind the DataTable to the GridView
+            gridID.DataSource = studentTable;
+            gridID.DataBind();
+
+            // Close the database connection
+            connection.Close();
         }
 
         public bool createPanel(string panelID, List<string> selectedIds)

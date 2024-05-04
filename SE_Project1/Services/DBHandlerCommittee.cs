@@ -23,21 +23,20 @@ namespace SE_Project1.Services
         public bool committeeMemberLogin(string roll, string pass)
         {
             connection.Open();
-            string query = "select password FROM FYPCommittee WHERE Member_ID='" + roll + "'";
+            string query = "select password FROM FYPCommittee WHERE Member_ID=@roll";
             SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@roll", roll);
             SqlCommand checkIfEmpty = new SqlCommand("SELECT count(*) FROM FYPCommittee WHERE Member_ID='" + roll + "' and password='" + pass + "'", connection);
 
             SqlDataReader check = checkIfEmpty.ExecuteReader();
+            bool see = false;
             if (check.HasRows)
             {
-                check.Close();
-                connection.Close();
-                return true;
-
+                see = true;
             }
             check.Close ();
             connection.Close();
-            return false;
+            return see;
         }// end of committeeLogin Function
 
         public string getCommMemberName(string id)
