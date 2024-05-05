@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SE_Project1.Pages
 {
-    public partial class Test : System.Web.UI.Page
+    public partial class PanelEvaluationForm : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

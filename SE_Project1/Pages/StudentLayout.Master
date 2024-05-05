@@ -96,11 +96,9 @@
            /*<div class="footer">
                Created By Kainat Ali, Rabail Nasir, Areeb Hayat.
            </div>*/
-   </style>
-    <div class="styleToAdd">
-        <asp:ContentPlaceHolder ID="AddCSSStyle" runat="server">
-        </asp:ContentPlaceHolder>
-    </div>
+    </style>
+    <asp:ContentPlaceHolder ID="AddCSSStyle" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <div class="body">

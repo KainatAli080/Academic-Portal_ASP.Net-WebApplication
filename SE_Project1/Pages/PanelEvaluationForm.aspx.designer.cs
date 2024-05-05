@@ -11,7 +11,16 @@ namespace SE_Project1.Pages
 {
 
 
-    public partial class Test
+    public partial class PanelEvaluationForm
     {
+
+        /// <summary>
+        /// reviewBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reviewBox;
     }
 }
