@@ -464,5 +464,127 @@ namespace SE_Project1.Services
             return;
         }
 
+        public bool createEvaluationDeadline(string ID, string Title, string Deadline, string Type)
+        {
+            connection.Open();
+            List<string> panelIDs = new List<string>();
+            string query = "INSERT INTO EvaluationDeadline(Deadline_ID,Deadline_Title,Deadline,Deadline_Type) VALUES(@id,@title,@deadline,@type);";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", ID);
+            cmd.Parameters.AddWithValue("@title", Title);
+            cmd.Parameters.AddWithValue("@deadline", Deadline);
+            cmd.Parameters.AddWithValue("@type", Type);
+            int found = cmd.ExecuteNonQuery();
+
+
+            if (found > 0)
+            {
+                string queryForPanels = "SELECT Panel_ID FROM Panel;";
+                SqlCommand cmdPanels = new SqlCommand(queryForPanels, connection);
+                int found2 = 0;
+                SqlDataReader dataReader = cmdPanels.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string id = dataReader["Panel_ID"].ToString();
+                    if (id == "")
+                    {
+                        dataReader.Close();
+                        connection.Close();
+                        return false;
+                    }
+                    panelIDs.Add(id);
+                }
+                dataReader.Close();
+                foreach (string panelID in panelIDs)
+                {
+                    SqlCommand command = new SqlCommand("INSERT INTO PanelHasDeadline(panel_ID,deadline_ID,deadline_title,due_date,status) VALUES(@pnl_id,@id,@dtitle,@ddate,@status);", connection);
+                    command.Parameters.AddWithValue("@pnl_id", panelID);
+                    command.Parameters.AddWithValue("@id", ID);
+                    command.Parameters.AddWithValue("@dtitle", Title);
+                    command.Parameters.AddWithValue("@ddate", Deadline);
+                    command.Parameters.AddWithValue("@status", "0");
+                    found2 += command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+
+                if (found2 > 0)
+                {
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public bool createAssesmentDeadline(string ID, string Title, string Deadline, int Marks, string Type)
+        {
+            connection.Open();
+            List<string> groupIDs = new List<string>();
+            string query = "INSERT INTO Assesment(Assesment_ID,Assesment_Title,Deadline,Assesment_Marks,Assesment_Type) VALUES(@id,@title,@deadline,@marks,@type);";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", ID);
+            cmd.Parameters.AddWithValue("@title", Title);
+            cmd.Parameters.AddWithValue("@deadline", Deadline);
+            cmd.Parameters.AddWithValue("@marks", Marks);
+            cmd.Parameters.AddWithValue("@type", Type);
+            int found = cmd.ExecuteNonQuery();
+
+            if (found > 0)
+            {
+                string queryForGroups = "SELECT Group_ID FROM FYPGroup;";
+                SqlCommand cmdGroups = new SqlCommand(queryForGroups, connection);
+                int found2 = 0;
+                SqlDataReader dataReader = cmdGroups.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string id = dataReader["Group_ID"].ToString();
+                    if (id == "")
+                    {
+                        dataReader.Close();
+                        connection.Close();
+                        return false;
+                    }
+                    groupIDs.Add(id);
+                }
+                dataReader.Close();
+                foreach (string groupID in groupIDs)
+                {
+                    SqlCommand command = new SqlCommand("INSERT INTO GroupHasAssesment(group_ID,assesment_ID,assesment_title,due_date,status) VALUES(@grp_id,@id,@atitle,@adate,@status);", connection);
+                    command.Parameters.AddWithValue("@grp_id", groupID);
+                    command.Parameters.AddWithValue("@id", ID);
+                    command.Parameters.AddWithValue("@atitle", Title);
+                    command.Parameters.AddWithValue("@adate", Deadline);
+                    command.Parameters.AddWithValue("@status", "0");
+                    found2 += command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+
+                if (found2 > 0)
+                {
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
     }
 }

@@ -89,10 +89,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Assesment.cs" />
+    <Compile Include="Models\Evaluation.cs" />
+    <Compile Include="Models\EvaluationDeadline.cs" />
+    <Compile Include="Models\EvaluationForm.cs" />
+    <Compile Include="Models\Faculty.cs" />
     <Compile Include="Models\FYP.cs" />
+    <Compile Include="Models\FYPCommittee.cs" />
+    <Compile Include="Models\FYPGroup.cs" />
     <Compile Include="Models\FYPGroupAssignedToPanel.cs" />
+    <Compile Include="Models\Notifications.cs" />
+    <Compile Include="Models\Panel.cs" />
     <Compile Include="Models\PanelMember.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Submission.cs" />
+    <Compile Include="Models\Supervisor.cs" />
     <Compile Include="Pages\CommitteeCreateUser.aspx.cs">
       <DependentUpon>CommitteeCreateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

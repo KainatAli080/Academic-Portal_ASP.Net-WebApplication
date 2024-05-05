@@ -237,5 +237,108 @@ namespace SE_Project1.Services
             return supName;
         }
 
+        public string getGroupIdFromMemberId(string memberId)
+        {
+            connection.Open();
+            string query = "SELECT Group_ID FROM FYPGroup WHERE Group_Member1 = '" + memberId + "' OR Group_Member2 = '" + memberId + "' OR Group_Member3 = '" + memberId + "';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            Object data = cmd.ExecuteScalar();
+            string id = data.ToString();
+            connection.Close();
+            return id;
+        }
+
+        public void getDeadlinesInformation(GridView gridID, string groupId)
+        {
+            connection.Open();
+            string query = "SELECT assesment_ID, assesment_title, due_date, status FROM GroupHasAssesment WHERE group_ID = '" + groupId + "';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable deadlinesTable = new DataTable();
+            adapter.Fill(deadlinesTable);
+
+            gridID.DataSource = deadlinesTable;
+            gridID.DataBind();
+            connection.Close();
+        }
+
+        public void getNotifications(GridView gridID, string studentID)
+        {
+            connection.Open();
+            string query = "SELECT notification_text FROM StudentNotifications WHERE stu_ID = '" + studentID + "';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable deadlinesTable = new DataTable();
+            adapter.Fill(deadlinesTable);
+
+            gridID.DataSource = deadlinesTable;
+            gridID.DataBind();
+            connection.Close();
+        }
+
+        public bool supervisorUpdateNotification(string studentID, string supervisorID)
+        {
+            connection.Open();
+
+            string query = "INSERT INTO StudentNotifications(stu_ID,notification_text,status) VALUES(@id,'The supervisor for your project have been changed to " + supervisorID + ".','0');";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", studentID);
+            int found = cmd.ExecuteNonQuery();
+
+            if (found > 0)
+            {
+
+                connection.Close();
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public string getGroupIdFromProjectId(string projectID)
+        {
+            connection.Open();
+            string query = "select grp_id from GroupHasProject where prj_id=@pid";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@pid", projectID);
+
+            object val = cmd.ExecuteScalar();
+            string gID = val.ToString();
+
+            connection.Close();
+            return gID;
+        }
+
+        public List<string> getGroupMembers(string groupID)
+        {
+            connection.Open();
+            List<string> data = new List<string>();
+
+            string query = "SELECT * from FYPGroup WHERE Group_ID = @id";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", groupID);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                string member1 = reader.GetString(1);
+                string member2 = reader.GetString(2);
+                string member3 = reader.GetString(3);
+
+                data.Add(member1);
+                data.Add(member2);
+                data.Add(member3);
+            }
+
+            reader.Close();
+            connection.Close();
+            return data;
+        }
+
     }
 }

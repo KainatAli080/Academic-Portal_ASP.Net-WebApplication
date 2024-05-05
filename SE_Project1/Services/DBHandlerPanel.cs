@@ -189,5 +189,32 @@ namespace SE_Project1.Services
             return check;
         }
 
+        public string getPanelIdFromMemberId(string memberID)
+        {
+            connection.Open();
+            string query = "SELECT pnl_ID FROM PanelMember WHERE PMember_ID = '" + memberID + "';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            Object data = cmd.ExecuteScalar();
+            string id = data.ToString();
+            connection.Close();
+            return id;
+        }
+
+        public void getDeadlinesInformation(GridView gridID, string panelID)
+        {
+            connection.Open();
+            string query = "SELECT deadline_ID, deadline_title, due_date, status FROM PanelHasDeadline WHERE panel_ID = '" + panelID + "';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable deadlinesTable = new DataTable();
+            adapter.Fill(deadlinesTable);
+
+            gridID.DataSource = deadlinesTable;
+            gridID.DataBind();
+            connection.Close();
+        }
+
+
     }
 }

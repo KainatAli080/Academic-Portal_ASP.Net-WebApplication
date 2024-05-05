@@ -16,9 +16,14 @@ select * from FYPGroupAssignedToPanel;
 
 --UPDATE student set FName='Test', LName='Test2' where Roll_No='S029'
 
+--SELECT fg.Group_ID, fg.Group_Member1, fg.Group_Member2, fg.Group_Member3
+--FROM FYPGroup fg
+--JOIN FYPGroupAssignedToPanel fgap ON fg.Group_ID = fgap.Group_ID
+--WHERE fgap.Panel_ID = 'PA003'
 
---SELECT * FROM Student
---WHERE fname LIKE '%J%n%';
+
+--SELECT * FROM FYPGroup
+--WHERE Group_ID LIKE '%S02%';
 
 -- select * from FYPGroup where Group_Member1='S002' or Group_Member2='S002' or Group_Member3='S002'
 
@@ -190,7 +195,6 @@ CREATE TABLE FYPGroupAssignedToPanel (
 );
 
 
-
 -- NO MORE CHANGES HERE
 CREATE TABLE FYPCommittee (
 	Member_ID VARCHAR(8),
@@ -349,4 +353,5 @@ select * from coSupervisor  -- would give us coSup, if any
 select * from Supervisor	-- would give us numProject
 
 select * from Supervisor where Supervisor.NumProjects > 6 and Supervisor.Supervisor_ID='FA002'
+
 select fyp_id, coSup from Supervises where sup_id='FA001'

@@ -106,5 +106,94 @@ namespace SE_Project1.Services
                 return false;
             }            
         }
+
+        public void getGroupsUnderSupervision(GridView gridID, string supervisorID)
+        {
+            connection.Open();
+            string query = "SELECT grp_id FROM GroupHasProject INNER JOIN Supervises ON Supervises.fyp_id = GroupHasProject.prj_id WHERE Supervises.sup_id = '" + supervisorID + "';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable deadlinesTable = new DataTable();
+            adapter.Fill(deadlinesTable);
+
+            gridID.DataSource = deadlinesTable;
+            gridID.DataBind();
+            connection.Close();
+        }
+
+        public void getNotifications(GridView gridID, string supervisorID)
+        {
+            connection.Open();
+            string query = "SELECT notification_text FROM SupervisorNotifications WHERE sup_ID = '" + supervisorID + "';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable deadlinesTable = new DataTable();
+            adapter.Fill(deadlinesTable);
+
+            gridID.DataSource = deadlinesTable;
+            gridID.DataBind();
+            connection.Close();
+        }
+
+        public bool groupRemovalNotification(string projectID, string supervisorID)
+        {
+            connection.Open();
+
+            string query = "INSERT INTO SupervisorNotifications(sup_ID,notification_text,status) VALUES(@id,'The project " + projectID + " has been removed from your supervision.','0');";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", supervisorID);
+            int found = cmd.ExecuteNonQuery();
+
+            if (found > 0)
+            {
+
+                connection.Close();
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public bool groupAssignmentNotification(string projectID, string supervisorID)
+        {
+            connection.Open();
+
+            string query = "INSERT INTO SupervisorNotifications(sup_ID,notification_text,status) VALUES(@id,'The project " + projectID + " has been assigned under your supervision.','0');";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", supervisorID);
+            int found = cmd.ExecuteNonQuery();
+
+            if (found > 0)
+            {
+
+                connection.Close();
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public DataTable generateReportData()
+        {
+            connection.Open();
+            string query = "select Supervises.sup_id , Supervisor.NumProjects, Supervises.fyp_id from Supervises INNER JOIN Supervisor ON Supervises.sup_id = Supervisor.Supervisor_ID;";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            connection.Close();
+            return dataTable;
+        }
+
     }
 }

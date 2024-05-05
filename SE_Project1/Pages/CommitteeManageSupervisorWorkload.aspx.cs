@@ -20,7 +20,7 @@ namespace SE_Project1.Pages
                 DBHandlerCommittee dBHandlerCommittee = new DBHandlerCommittee();
                 dBHandlerCommittee.getSupervisorWithMoreThan6Projects(GridViewSupervisor);
 
-                if(GridViewSupervisor.Rows.Count > 0)
+                if(GridViewSupervisor.Rows.Count == 0)
                 {
                     // meaning no supervisors with more tyan 6 projects
                     GridViewSupervisor.ShowHeaderWhenEmpty = true;
